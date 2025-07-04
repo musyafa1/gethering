@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Digital Gathering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0);
+            background-size: 20px 20px;
+            opacity: 0.3;
+        }
+
+        .invitation-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .invitation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .date-circle {
+            width: 100px;
+            height: 100px;
+            border: 3px solid white;
+        }
+
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .title-font {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .music-control {
+            transition: all 0.3s ease;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f0f;
+            opacity: 0.7;
+            animation: confettiFall 5s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="music/FARIS ADAM - STECU STECU (Official Music Video).mp4" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <div class="hero-section min-h-screen flex items-center justify-center text-white">
+        <div class="hero-pattern"></div>
+        
+        <!-- Confetti effect -->
+        <div id="confetti-container" class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden"></div>
+
+        <div class="container mx-auto px-4 py-12 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="invitation-card p-8 md:p-12 mb-12">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div class="w-full md:w-1/2 text-center md:text-left order-2 md:order-1">
+                            <h1 class="title-font text-5xl md:text-6xl lg:text-7xl mb-6 text-shadow">Gathering Team <span class="block text-4xl md:text-5xl lg:text-6xl">Dan <br> Agent Danastra Cabang Kota Pemalang 2</span></h1>
+                            <p class="text-lg mb-6 opacity-90">
+                                Bersama-sama kita berkumpul untuk merayakan kebersamaan dan mempererat tali silaturahmi. 
+                                <span class="block mt-2">Mari hadir dan nikmati momen spesial ini!</span>
+                            </p>
+                            
+                            <div class="flex flex-col sm:flex-row gap-4 mb-8 items-center justify-center md:justify-start">
+                                <div class="date-circle rounded-full flex flex-col items-center justify-center floating">
+                                    <span class="text-3xl font-bold">12-13</span>
+                                    <span class="text-sm">Juli</span>
+                                </div>
+                                
+                                <div class="text-left">
+                                    <p class="font-medium text-lg">Sabtu & Minggu 12-13 Juli 2025</p>
+                                    <p class="opacity-90">Pukul 18.00 - Selesai</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 order-1 md:order-2">
+                            <img src="foto/WhatsApp Image 2025-06-30 at 08.11.30.jpeg" alt="Pesta gathering mewah dengan dekorasi balon dan lampu di sebuah ballroom besar dengan tamu yang sedang bergembira" class="rounded-xl shadow-xl w-full h-auto floating" style="animation-delay: 0.5s;">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="invitation-card p-8">
+                        <h2 class="text-2xl font-bold mb-4">Detail Acara</h2>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-0.5 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <span>
+                                    <strong>Lokasi:</strong> Vila Mawar 3<br> Jl. Objek Wisata Guci, Sawah,Ladang,Hutan, Rembul, <br>Kec. Bojong, Kabupaten Tegal,<br> Jawa Tengah 52465<br>
+                                </span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-0.5 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span><strong>Waktu:</strong> 16.00 - Selesai</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-0.5 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span><strong>Dresscode:</strong> Baju (Pakaian) Hitam <Br> Celana jeans Biru</Br></span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="invitation-card p-8">
+                        <h2 class="text-2xl font-bold mb-4">Susunan Acara</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-purple-400 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <span class="text-white text-sm">1</span>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Registrasi</p>
+                                    <p class="text-sm opacity-80">16.00 - 17.00</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-purple-400 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <span class="text-white text-sm">2</span>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Updating</p>
+                                    <p class="text-sm opacity-80">17.00 - 18.00</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-purple-400 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <span class="text-white text-sm">3</span>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Game, Awarding & Gala diner</p>
+                                    <p class="text-sm opacity-80">19.00 - 22.00</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-purple-400 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <span class="text-white text-sm">4</span>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Penutupan</p>
+                                    <p class="text-sm opacity-80">22.00 - Selesai</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="invitation-card p-0 overflow-hidden mb-12">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.471181803119!2d109.16094777140282!3d-7.1869525695912415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f937e637d1207%3A0x1329225f0ae7e617!2sVilla%20Mawar%20Indah%203!5e0!3m2!1sen!2sid!4v1751247660042!5m2!1sen!2sid" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        class="block"
+                        title="Peta Lokasi Gathering Akbar 2023">
+                    </iframe>
+                </div>
+                
+                <div class="text-center">
+                    <div class="music-control inline-block bg-white bg-opacity-20 rounded-full p-3 mb-6 cursor-pointer" onclick="toggleMusic()">
+                        <svg id="playIcon" class="w-8 h-8 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <svg id="pauseIcon" class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <p class="text-white opacity-90 mb-8">Kami menantikan kehadiran Anda untuk menyemarakkan acara ini!</p>
+                    <img src="foto/FOTO otti.jpeg" alt="Group foto bersama dalam suasana gathering sebelumnya dengan peserta tersenyum dan mengangkat gelas" class="rounded-lg mx-auto">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-play music after user interaction (via simulated click event)
+            const playMusic = () => {
+                const music = document.getElementById('backgroundMusic');
+                music.volume = 0.3;
+                
+                // Some browsers require a promise
+                const promise = music.play();
+                
+                if (promise !== undefined) {
+                    promise.catch(error => {
+                        // Auto-play was prevented - show UI to allow play
+                        console.log('Auto-play prevented:', error);
+                    }).then(() => {
+                        console.log('Music playing successfully');
+                    });
+                }
+            };
+            
+            // Try to play music after slight delay to allow for initial interaction
+            setTimeout(() => {
+                playMusic();
+            }, 1000);
+
+            // Create confetti effect
+            createConfetti();
+            
+            // Start animation for elements
+            animateElements();
+        });
+        
+        function toggleMusic() {
+            const music = document.getElementById('backgroundMusic');
+            const playIcon = document.getElementById('playIcon');
+            const pauseIcon = document.getElementById('pauseIcon');
+            
+            if (music.paused) {
+                music.play();
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+            } else {
+                music.pause();
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            }
+        }
+        
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#f8a5c2', '#778beb', '#f5cd79', '#786fa6', '#63cdda'];
+            
+            for (let i = 0; i < 80; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                // Random properties
+                const size = Math.random() * 10 + 5;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const left = Math.random() * 100;
+                const animationDuration = Math.random() * 3 + 3;
+                const animationDelay = Math.random() * 5;
+                
+                // Apply styles
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.backgroundColor = color;
+                confetti.style.left = `${left}vw`;
+                confetti.style.animationDuration = `${animationDuration}s`;
+                confetti.style.animationDelay = `${animationDelay}s`;
+                
+                container.appendChild(confetti);
+            }
+        }
+        
+        function animateElements() {
+            // Add animation classes with delay
+            const elements = document.querySelectorAll('.invitation-card, .date-circle');
+            
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = 1;
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+                
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+        }
+    </script>
+</body>
+</html>
+
